@@ -5,3 +5,4 @@ AgenteDirecto brinda las herramientas para agilizar los procesos de negociación
  - otra prueba push 
  - prueba 2 con pull request
  - Avance de uptream - gimalca
+ - pero a veces hay confictos
