@@ -1,2 +1,4 @@
 local.php
+pro.php
 *.local.php
+*.pro.php
