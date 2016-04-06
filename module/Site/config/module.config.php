@@ -23,8 +23,14 @@ return array(
         ),
     ),
     'view_manager' => array(
+        'template_map' => array(
+            'layout/landing'           => __DIR__ . '/../view/layout/landing.phtml',
+        ),
         'template_path_stack' => array(
             'Site' => __DIR__ . '/../view',
         ),
+    ),
+    'module_layouts' => array(
+        'Site' => 'layout/landing'
     ),
 );

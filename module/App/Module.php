@@ -19,6 +19,10 @@ class Module
         $eventManager        = $e->getApplication()->getEventManager();
         $moduleRouteListener = new ModuleRouteListener();
         $moduleRouteListener->attach($eventManager);
+        
+        //Run Layouts
+        $app = $e->getApplication()->getEventManager();
+        $app->attach('dispatch', array($this, 'initLayout'), -100);
     }
 
     public function getConfig()
@@ -35,5 +39,31 @@ class Module
                 ),
             ),
         );
+    }
+    
+    public function initLayout($e) {
+        
+        $routeMatchParams = array();
+
+        $routeMatchParams = $e->getRouteMatch()->getParams();
+
+        (!isset($routeMatchParams['__NAMESPACE__'])) ? $routeMatchParams['__NAMESPACE__'] = "Site\Controller" : NULL;
+        $moduleName = substr($routeMatchParams['__NAMESPACE__'], 0, strpos($routeMatchParams['__NAMESPACE__'], '\\'));
+        $controllerName = str_replace('\\Controller\\', '/', $routeMatchParams['controller']);
+        $actionName = $routeMatchParams['action'];
+
+        $config = $e->getApplication()->getServiceManager()->get('config');
+        $controller = $e->getTarget();
+        //print_r($config['controller_layouts']);die;
+        
+        if (isset($config['module_layouts'][$moduleName])) {
+            $controller->layout($config['module_layouts'][$moduleName]);
+        }
+        if (isset($config['controller_layouts'][$controllerName])) {
+            $controller->layout($config['controller_layouts'][$controllerName]);
+        }
+        if (isset($config['action_layouts'][$controllerName . '/' . $actionName])) {
+            $controller->layout($config['action_layouts'][$controllerName . '/' . $actionName]);
+        }
     }
 }
