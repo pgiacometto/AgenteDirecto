@@ -21,7 +21,6 @@
         "zendframework/zendframework": "~2.5"
     },
     "require-dev": {
-        "zendframework/zendframework": "dev-master",
         "zendframework/zend-developer-tools": "dev-master",
         "bjyoungblood/bjy-profiler": "dev-master",
         "zendframework/zftool": "dev-master"
