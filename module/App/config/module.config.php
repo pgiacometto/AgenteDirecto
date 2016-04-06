@@ -7,7 +7,7 @@
  * @license   http://framework.zend.com/license/new-bsd New BSD License
  */
 
-namespace Application;
+namespace App;
 
 return array(
     'router' => array(
@@ -17,7 +17,7 @@ return array(
                 'options' => array(
                     'route'    => '/',
                     'defaults' => array(
-                        'controller' => 'Application\Controller\Index',
+                        'controller' => 'App\Controller\Index',
                         'action'     => 'index',
                     ),
                 ),
@@ -29,9 +29,9 @@ return array(
             'application' => array(
                 'type'    => 'Literal',
                 'options' => array(
-                    'route'    => '/application',
+                    'route'    => '/app',
                     'defaults' => array(
-                        '__NAMESPACE__' => 'Application\Controller',
+                        '__NAMESPACE__' => 'App\Controller',
                         'controller'    => 'Index',
                         'action'        => 'index',
                     ),
@@ -75,7 +75,7 @@ return array(
     ),
     'controllers' => array(
         'invokables' => array(
-            'Application\Controller\Index' => Controller\IndexController::class
+            'App\Controller\Index' => Controller\IndexController::class
         ),
     ),
     'view_manager' => array(
