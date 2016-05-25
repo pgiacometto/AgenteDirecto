@@ -1,0 +1,45 @@
+
+@site-menu-fold: {
+  .site-menu {
+    &-category {
+      color: transparent;
+      background: @site-menubar-fold-divider-bg;
+    }
+
+    > .site-menu-item {
+      > .site-menu-sub {
+        background: @site-menubar-fold-sub-bg;
+      }
+    }
+  }
+
+  .site-menubar-dark {
+    .site-menu {
+      &-category {
+        background: @site-menubar-dark-fold-divider-bg;
+      }
+
+      > .site-menu-item {
+        > .site-menu-sub {
+          background: @site-menubar-dark-fold-sub-bg;
+        }
+      }
+    }
+  }
+};
+
+@site-menubar-section-fold: {
+  .site-menubar-section {
+    border-top: 2px solid @site-menubar-fold-divider-bg;
+    border-bottom: 2px solid @site-menubar-fold-divider-bg;
+  }
+
+  .site-menubar-dark {
+    .site-menubar-section {
+      border-top: 2px solid @site-menubar-dark-fold-divider-bg;
+      border-bottom: 2px solid @site-menubar-dark-fold-divider-bg;
+    }
+  }
+};
+
+
